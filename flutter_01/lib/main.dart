@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 void main() {
   runApp(MyApp());
@@ -41,26 +42,49 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.lightBlue[100],
       // backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text(widget.title),
+        // centerTitle: true,
       ),
       body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(
-            'You have pushed the button this many times:',
-          ),
-          Text(
-            '${_counter + 1}',
-            style: Theme.of(context).textTheme.headline4,
+          // Text(
+          //   "Welcome to Flutter development!",
+          //   style: TextStyle(
+          //     fontSize: 24,
+          //     // color: Colors.red,
+          //     // letterSpacing: 1.3,
+          //     fontWeight: FontWeight.w800,
+          //   ),
+          // ),
+          // SvgPicture.asset("images/yacht.svg"),
+
+          Center(
+            child: Container(
+              height: 240,
+              width: 240,
+              decoration: BoxDecoration(
+                color: Color(0xffEBF7FE),
+                borderRadius: BorderRadius.circular(50),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.blue.withOpacity(0.7),
+                    offset: Offset(8, 8),
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(32.0),
+                child: SvgPicture.asset(
+                  'images/yacht.svg',
+                ),
+              ),
+            ),
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
     );
   }
