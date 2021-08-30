@@ -69,6 +69,7 @@ class ResultView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    List arrayData = ["Imran", "Sefat", "123"];
 
     return ListView(
       // crossAxisAlignment: CrossAxisAlignment.start,
@@ -114,6 +115,23 @@ class ResultView extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 28.0),
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: arrayData.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Center(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    arrayData[index],
+                  ),
+                ),
+              );
+            },
           ),
         ),
       ],
