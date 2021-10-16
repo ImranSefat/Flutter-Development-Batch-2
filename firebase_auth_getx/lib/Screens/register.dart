@@ -30,24 +30,44 @@ class _LoginState extends State<Login> {
               obscureText: true,
               controller: passwordTexteditingController,
             ),
-            ElevatedButton(
-              onPressed: () {
-                authController.register(
-                  emailTexteditingController.text.trim(),
-                  passwordTexteditingController.text.trim(),
-                );
-              },
-              child: const Text("Register"),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    authController.register(
+                      emailTexteditingController.text.trim(),
+                      passwordTexteditingController.text.trim(),
+                    );
+                  },
+                  child: const Text("Register"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    authController.login(
+                      emailTexteditingController.text.trim(),
+                      passwordTexteditingController.text.trim(),
+                    );
+                  },
+                  child: const Text("Login"),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
             ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red,
+              ),
               onPressed: () {
-                authController.login(
-                  emailTexteditingController.text.trim(),
-                  passwordTexteditingController.text.trim(),
-                );
+                authController.singInWithGoogle();
               },
-              child: const Text("Login"),
-            )
+              child: const Text("Sign in with Google"),
+            ),
           ],
         ),
       ),
