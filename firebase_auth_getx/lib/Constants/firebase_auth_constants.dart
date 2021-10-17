@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth_getx/Controllers/auth_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -9,3 +10,4 @@ FirebaseAuth auth = FirebaseAuth.instance;
 
 AuthController authController = AuthController.instance;
 GoogleSignIn googleSignIn = GoogleSignIn();
+FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;

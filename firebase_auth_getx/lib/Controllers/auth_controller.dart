@@ -2,14 +2,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth_getx/Constants/firebase_auth_constants.dart';
 import 'package:firebase_auth_getx/Screens/home.dart';
 import 'package:firebase_auth_getx/Screens/register.dart';
+import 'package:firebase_auth_getx/helper/firestore_db.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthController extends GetxController {
   late Rx<User?> firebaseUser;
   static AuthController instance = Get.find<AuthController>();
-
-  // late ConfirmationResult confirmationResult;
   late Rx<GoogleSignInAccount?> googleSignInAccount;
 
   @override
@@ -71,7 +70,10 @@ class AuthController extends GetxController {
   void register(String email, String password) async {
     try {
       await auth.createUserWithEmailAndPassword(
-          email: email, password: password);
+        email: email,
+        password: password,
+      );
+      await FirestoreDb.addUser(email);
     } catch (e) {
       print(e.toString());
     }
